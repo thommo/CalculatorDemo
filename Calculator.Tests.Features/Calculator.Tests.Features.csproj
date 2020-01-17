@@ -16,4 +16,8 @@
     <PackageReference Include="SpecRun.SpecFlow" Version="3.1.44" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CalculatorDemo\CalculatorDemo.csproj" />
+  </ItemGroup>
+
 </Project>
