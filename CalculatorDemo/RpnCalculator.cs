@@ -20,6 +20,16 @@ namespace CalculatorDemo
             return result;
         }
 
+        public double Divide()
+        {
+            var divisor = _stack.Pop();
+            var dividend = _stack.Pop();
+
+            var result = dividend / divisor;
+            _stack.Push(result);
+            return result;
+        }
+
         public double CurrentValue()
         {
             return _stack.Peek();

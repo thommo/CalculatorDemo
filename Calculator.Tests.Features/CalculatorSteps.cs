@@ -11,7 +11,7 @@ namespace Calculator.Tests.Features
         private RpnCalculator _calculator = new RpnCalculator();
         private double _result;
 
-        [Given(@"I have entered (.*) into the calculator")]
+        [Given(@"I have entered '(.*)' into the calculator")]
         public void GivenIHaveEnteredIntoTheCalculator(double p0)
         {
             _calculator.EnterNumber(p0);
@@ -23,14 +23,26 @@ namespace Calculator.Tests.Features
             _result = _calculator.Add();
         }
         
-        [Then(@"the result should be (.*) on the screen")]
+        [Then(@"the result should be '(.*)' on the screen")]
         public void ThenTheResultShouldBeOnTheScreen(double p0)
         {
             Assert.AreEqual(_result, p0);
         }
 
-        [Then(@"current value is (.*)")]
+        [Then(@"current value is '(.*)'")]
         public void ThenCurrentValueIs(double p0)
+        {
+            Assert.AreEqual(_calculator.CurrentValue(), p0);
+        }
+
+        [When(@"I press divide")]
+        public void WhenIPressDivide()
+        {
+            _result = _calculator.Divide();
+        }
+
+        [Then(@"the result should be '(.*)'")]
+        public void ThenTheResultShouldBe(double p0)
         {
             Assert.AreEqual(_calculator.CurrentValue(), p0);
         }
